@@ -41,13 +41,13 @@
 | [배승준](https://github.com/) | [서호영](https://github.com/) | [우유민]() | [강신형]() |
 | - 기획 리드 & | -  | - 디자인 리드 & | -  |
 
-### Backend 📂
+### Backend 💾
 | <img src="https://avatars.githubusercontent.com/u/?v=4" width="60" height="60"> | <img src="https://avatars.githubusercontent.com/u/hfjxjjd123?v=4" width="60" height="60"> |
 |:---:|:---:|
 | [신민규](https://github.com/) | [이학림](https://github.com/) |
 | - 서버 리드 & | -  |
 
-### Frontend 
+### Frontend 🖥️
 | <img src="https://avatars.githubusercontent.com/gonn-i?v=4" width="60" height="60"> | <img src="https://avatars.githubusercontent.com/gwagjiug?v=4" width="60" height="60"> | <img src="https://avatars.githubusercontent.com/daahyunk?v=4" width="60" height="60"> | <img src="https://avatars.githubusercontent.com/shroqkf?v=4" width="60" height="60"> |
 |:---:|:---:|:---:|:---:|
 | [김고은](https://github.com/gonn-i) | [곽지욱](https://github.com/gwagjiug) | [김다현](https://github.com/daahyunk) | [노찬영](https://github.com/shroqkf) |
