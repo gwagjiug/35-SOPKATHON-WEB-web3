@@ -1,0 +1,41 @@
+name: Synchronize to forked repo
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    name: Sync forked repo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.AUTO_SYNC }}
+
+      - name: Install dependencies
+        run: |
+          cd Client
+          yarn install
+
+      - name: Build project
+        run: |
+          cd Client
+          yarn run build
+
+      - name: Add remote-url
+        run: |
+          git remote add forked-repo https://gonn-i:${{ secrets.AUTO_SYNC }}@github.com/gonn-i/35-SOPKATHON-WEB-web3
+          git config user.name gonn-i
+          git config user.email rlarhdms6828@naver.com
+
+      - name: Push changes to forked-repo
+        run: |
+          git push -f forked-repo master
+
+      - name: Clean up
+        run: |
+          git remote remove forked-repo
