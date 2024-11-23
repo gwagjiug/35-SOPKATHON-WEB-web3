@@ -3,9 +3,11 @@ import Header from '../components/check/Header';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ImgHairLess02, ImgHairMany, ImgSymbol } from '../assets/svg';
+import Input from '../components/check/Input';
+import Button from '../components/check/Button';
 
 const CheckRoutine = () => {
-  const [level, setLevel] = useState(2);
+  const [level, setLevel] = useState(1);
 
   useEffect(() => {
     const nowDate = new Date();
@@ -37,6 +39,10 @@ const CheckRoutine = () => {
         <S.TimeSection>
           <p>{date}</p>
         </S.TimeSection>
+        <S.InputSection>
+          <Input />
+        </S.InputSection>
+        <Button />
       </S.Main>
     </MobileLayout>
   );
@@ -63,6 +69,21 @@ const S = {
     align-items: center;
     color: ${({ theme }) => theme.color.gray08};
     ${({ theme }) => theme.font.title_sb_16};
+  `,
+  InputSection: styled.section`
+    max-height: 18rem;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+    }
+    &::-webkit-scrollbar-track {
+      background: none;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme.color.gray08};
+      border-radius: 0.2rem;
+    }
   `,
 };
 
