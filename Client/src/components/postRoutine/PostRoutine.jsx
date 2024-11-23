@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { postRoutine } from '../../utils/postRoutine';
 
 import theme from '../../styles/theme';
 import {
@@ -11,7 +12,20 @@ import {
 
 const PostRoutine = ({ initialRoutines = [], isEditMode = false }) => {
   const navigate = useNavigate();
+  const [date, setDate] = useState('');
 
+  useEffect(() => {
+    const storedDate = localStorage.getItem('date');
+    if (storedDate) {
+      setDate(storedDate);
+    } else {
+      const today = new Date().toISOString().split('T')[0];
+      setDate(today);
+      localStorage.setItem('date', today);
+    }
+  }, []);
+
+  useEffect(() => {}, []);
   const [inputValue, setInputValue] = useState('');
   const [routineList, setRoutineList] = useState(initialRoutines);
 
@@ -39,9 +53,18 @@ const PostRoutine = ({ initialRoutines = [], isEditMode = false }) => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const memberId = 1; // 멤버 ID
+    const date = '2024-11-24'; // 테스트 날짜
+
     if (routineList.length >= 1) {
-      navigate('/check');
+      try {
+        const response = await postRoutine(memberId, routineList, date);
+        console.log('API 응답:', response);
+        navigate('/check', { state: { routines: routineList } }); // 상태로 데이터 전달
+      } catch (err) {
+        console.error('API 요청 실패:', err);
+      }
     }
   };
 

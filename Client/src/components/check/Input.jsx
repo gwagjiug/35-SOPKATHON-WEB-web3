@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { IcCheckboxDisabled, IcCheckboxDefault } from '../../assets/svg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useEffect } from 'react';
 import Button from './Button';
+import { useLocation } from 'react-router-dom';
 
 function Input({ onAllChecked, resetTrigger }) {
   const [todos, setTodos] = useState([
