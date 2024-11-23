@@ -2,33 +2,36 @@ import MobileLayout from '../components/common/MobileLayout';
 import Header from '../components/check/Header';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { ImgHairLess02, ImgHairMany, ImgSymbol } from '../assets/svg';
+import { ImgCheckboxHairArray } from '../const/imgCheckboxHairArray';
 import Input from '../components/check/Input';
-import Button from '../components/check/Button';
+import axios from 'axios';
 
 const CheckRoutine = () => {
   const [level, setLevel] = useState(1);
+  const [resetTrigger, setResetTrigger] = useState(false);
 
   useEffect(() => {
     const nowDate = new Date();
     const dateOnly = nowDate.toISOString().split('T')[0];
-    console.log(dateOnly);
     localStorage.setItem('currentTime', dateOnly);
   }, []);
 
   const date = localStorage.getItem('currentTime');
 
+  const handleLevelIncrease = () => {
+    setLevel((prevLevel) =>
+      Math.min(prevLevel + 1, ImgCheckboxHairArray.length),
+    );
+    setResetTrigger((prev) => !prev);
+  };
+
   const getImageByLevel = () => {
-    switch (level) {
-      case 1:
-        return <ImgHairLess02 width="250px" height="250px" />;
-      case 2:
-        return <ImgHairMany width="250px" height="250px" />;
-      case 3:
-        return <ImgSymbol width="250px" height="250px" />;
-      default:
-        return <ImgHairLess02 width="250px" height="250px" />;
-    }
+    const index = Math.max(
+      0,
+      Math.min(level - 1, ImgCheckboxHairArray.length - 1),
+    );
+    const SelectedImage = ImgCheckboxHairArray[index];
+    return <SelectedImage width="250px" height="250px" />;
   };
 
   return (
@@ -39,10 +42,7 @@ const CheckRoutine = () => {
         <S.TimeSection>
           <p>{date}</p>
         </S.TimeSection>
-        <S.InputSection>
-          <Input />
-        </S.InputSection>
-        <Button />
+        <Input onAllChecked={handleLevelIncrease} resetTrigger={resetTrigger} />
       </S.Main>
     </MobileLayout>
   );
@@ -69,21 +69,6 @@ const S = {
     align-items: center;
     color: ${({ theme }) => theme.color.gray08};
     ${({ theme }) => theme.font.title_sb_16};
-  `,
-  InputSection: styled.section`
-    max-height: 18rem;
-    overflow-y: auto;
-
-    &::-webkit-scrollbar {
-      width: 0.4rem;
-    }
-    &::-webkit-scrollbar-track {
-      background: none;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.color.gray08};
-      border-radius: 0.2rem;
-    }
   `,
 };
 
