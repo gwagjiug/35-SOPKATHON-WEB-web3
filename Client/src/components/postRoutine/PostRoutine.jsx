@@ -75,7 +75,7 @@ const PostRoutine = () => {
       </RoutinePlusWrap>
       <SubmitButtonWrap>
         <SubmitButton
-          hasroutines={(routineList.length > 0).toString()}
+          hasroutines={routineList.length > 0}
           onClick={handleSubmit}
         >
           제출하기
@@ -159,7 +159,7 @@ const DeleteIconWrap = styled.div`
   padding: 1.2rem;
   justify-content: center;
   align-items: center;
-  cursor: pointer; /* 클릭 가능하도록 추가 */
+  cursor: pointer;
 `;
 
 const SubmitButtonWrap = styled.div`
