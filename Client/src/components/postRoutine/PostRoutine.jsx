@@ -1,8 +1,33 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import theme from '../../styles/theme';
-import { IcRoutinePlus, ImgRoutineBoldSmile } from '../../assets/svg';
+import {
+  IcRoutineDelete,
+  IcRoutinePlus,
+  ImgRoutineBoldSmile,
+} from '../../assets/svg';
 
 const PostRoutine = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [routineList, setRoutineList] = useState([]);
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const addRoutine = () => {
+    if (inputValue.trim()) {
+      setRoutineList([...routineList, inputValue]);
+      setInputValue('');
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      addRoutine();
+    }
+  };
+
   return (
     <RoutineContainer>
       <TopContainer>
@@ -14,11 +39,28 @@ const PostRoutine = () => {
           <ImgRoutineBoldSmile />
         </ImgWrap>
       </TopContainer>
-      <InputContainer placeholder="루틴 입력하기" />
-      <RoutinePlusWrap>
+      <InputContainer
+        placeholder="루틴 입력하기"
+        value={inputValue}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress}
+      />
+      <RoutineList>
+        {routineList.map((routine, index) => (
+          <RoutineItem key={index}>
+            <RoutineWrap>{routine}</RoutineWrap>
+            <DeleteIconWrap>
+              <IcRoutineDelete />
+            </DeleteIconWrap>
+          </RoutineItem>
+        ))}
+      </RoutineList>
+      <RoutinePlusWrap onClick={addRoutine}>
         <IcRoutinePlus />
       </RoutinePlusWrap>
-      <SubmitButton>제출하기</SubmitButton>
+      <SubmitButtonWrap>
+        <SubmitButton>제출하기</SubmitButton>
+      </SubmitButtonWrap>
     </RoutineContainer>
   );
 };
@@ -33,17 +75,18 @@ const RoutineContainer = styled.div`
   padding: 4.2rem 2rem 5.4rem 2rem;
   justify-content: center;
   align-items: center;
-  background-color: ${theme.color.black};
+  background-color: ${theme.color.white};
 `;
 
 const TopContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
 `;
 
 const Title = styled.div`
   color: ${theme.color.gray10};
+  ${theme.font.title_sb_20}
 
   padding: 2.5rem 2.4rem 4.5rem 1rem;
 `;
@@ -64,6 +107,7 @@ const InputContainer = styled.input`
   border-radius: 10px;
   border: none;
   background: ${theme.color.gray02};
+  ${theme.font.title_sb_14}
   ::placeholder {
     color: ${theme.color.gray06};
   }
@@ -75,9 +119,33 @@ const RoutinePlusWrap = styled.div`
   height: 44px;
   padding: 5px 4.681px 4.681px 5px;
   margin-top: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const RoutineWrap = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const DeleteIconWrap = styled.div`
+  display: flex;
+  width: 4.4rem;
+  height: 4.4rem;
+  padding: 1.2rem;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
+`;
+
+const SubmitButtonWrap = styled.button`
+  position: fixed;
+  bottom: 0;
+  width: 37.5rem;
+  height: 15.1rem;
+  padding: 4.6rem 0 5.3rem 0;
 `;
 
 const SubmitButton = styled.button`
@@ -89,6 +157,31 @@ const SubmitButton = styled.button`
   align-items: center;
   gap: 1rem;
   border-radius: 1.6rem;
-  background: ${theme.color.gray05};
-  color: ${theme.color.black};
+  background-color: ${theme.color.gray05};
+  color: ${theme.color.white};
+  ${theme.font.title_sb_20}
+
+  &:hover {
+    background-color: ${theme.main.main02};
+  }
+`;
+
+const RoutineList = styled.ul`
+  width: 100%;
+  list-style: none;
+  padding: 0;
+`;
+
+const RoutineItem = styled.li`
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  padding: 1.8rem 1.5rem;
+  margin-top: 1.3rem;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+  background: ${theme.color.gray02};
+  ${theme.font.title_sb_14}
+  color: ${theme.color.gray10};
 `;

@@ -41,7 +41,8 @@
 | <img src="https://github.com/user-attachments/assets/9650ab2d-5bdc-488f-8194-b3adc789fa56" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/gwagjiug?v=4" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/daahyunk?v=4" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/shroqkf?v=4" width="100" height="100"> |
 |:---:|:---:|:---:|:---:|
 | [김고은](https://github.com/gonn-i) | [곽지욱](https://github.com/gwagjiug) | [김다현](https://github.com/daahyunk) | [노찬영](https://github.com/shroqkf) |
-| - 웹 리드 & | -  | -  | -  |
+| 메인 view | 루틴 체크 view | 루틴 리스트 view | 루틴 생성 view |
+| 메인화면 & 성공률 조회 API | 메인화면 & 체크리스트 반영 API | 전체 todo 불러오기 API | todo 생성 & 수정 API |
 
 <br>
 
