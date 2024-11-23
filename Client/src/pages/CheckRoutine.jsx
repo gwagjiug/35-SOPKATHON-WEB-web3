@@ -1,9 +1,18 @@
 import MobileLayout from '../components/common/MobileLayout';
+import Header from '../components/check/Header';
+import { useEffect } from 'react';
 
 const CheckRoutine = () => {
+  useEffect(() => {
+    const nowDate = new Date();
+    const dateOnly = nowDate.toISOString().split('T')[0];
+    console.log(dateOnly);
+    localStorage.setItem('currentTime', dateOnly);
+  }, []);
+
   return (
     <MobileLayout>
-      <main>루틴을 체크하고, 현재 탈모정도를 확인할 수 있는 페이지 입니다</main>
+      <Header />
     </MobileLayout>
   );
 };
