@@ -1,5 +1,11 @@
+import MobileLayout from './components/common/mobileLayout';
+
 function App() {
-  return <>솝커톤 파이팅</>;
+  return (
+    <MobileLayout>
+      <main>테스트</main>
+    </MobileLayout>
+  );
 }
 
 export default App;
