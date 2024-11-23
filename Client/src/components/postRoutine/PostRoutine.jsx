@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+
 import theme from '../../styles/theme';
 import {
   IcRoutineDelete,
@@ -8,6 +10,8 @@ import {
 } from '../../assets/svg';
 
 const PostRoutine = ({ initialRoutines = [], isEditMode = false }) => {
+  const navigate = useNavigate();
+
   const [inputValue, setInputValue] = useState('');
   const [routineList, setRoutineList] = useState(initialRoutines);
 
@@ -35,6 +39,12 @@ const PostRoutine = ({ initialRoutines = [], isEditMode = false }) => {
     }
   };
 
+  const handleSubmit = () => {
+    if (routineList.length >= 1) {
+      navigate('/check');
+    }
+  };
+
   return (
     <RoutineContainer>
       <TopContainer>
@@ -50,7 +60,7 @@ const PostRoutine = ({ initialRoutines = [], isEditMode = false }) => {
         placeholder="루틴 입력하기"
         value={inputValue}
         onChange={handleChange}
-        onKeyPress={handleKeyPress}
+        onKeyDown={handleKeyPress}
       />
       <RoutineList>
         {routineList.map((routine, index) => (
@@ -66,7 +76,10 @@ const PostRoutine = ({ initialRoutines = [], isEditMode = false }) => {
         <IcRoutinePlus onClick={addRoutine} />
       </RoutinePlusWrap>
       <SubmitButtonWrap>
-        <SubmitButton hasRoutines={routineList.length > 0}>
+        <SubmitButton
+          hasroutines={routineList.length > 0}
+          onClick={handleSubmit}
+        >
           {buttonText}
         </SubmitButton>
       </SubmitButtonWrap>
@@ -85,6 +98,7 @@ const RoutineContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${theme.color.white};
+  min-height: 100dvh;
 `;
 
 const TopContainer = styled.div`
@@ -140,21 +154,19 @@ const RoutineWrap = styled.div`
   align-items: center;
 `;
 
-const DeleteIconWrap = styled.button`
+const DeleteIconWrap = styled.div`
   display: flex;
   width: 4.4rem;
   height: 4.4rem;
   padding: 1.2rem;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
-const SubmitButtonWrap = styled.button`
-  position: fixed;
-  bottom: 0;
-  width: 37.5rem;
-  height: 15.1rem;
-  padding: 4.6rem 0 5.3rem 0;
+const SubmitButtonWrap = styled.div`
+  margin-top: auto;
+  width: 100%;
 `;
 
 const SubmitButton = styled.button`
@@ -166,11 +178,11 @@ const SubmitButton = styled.button`
   align-items: center;
   gap: 1rem;
   border-radius: 1.6rem;
-  background-color: ${({ hasRoutines }) =>
-    hasRoutines ? theme.main.main02 : theme.color.gray05};
+  background-color: ${({ hasroutines }) =>
+    hasroutines ? theme.main.main02 : theme.color.gray05};
   &:hover {
-    background-color: ${({ hasRoutines }) =>
-      hasRoutines ? theme.main.main01 : theme.color.gray05};
+    background-color: ${({ hasroutines }) =>
+      hasroutines ? theme.main.main01 : theme.color.gray05};
   }
   color: ${theme.color.white};
   ${theme.font.title_sb_20}
@@ -178,8 +190,26 @@ const SubmitButton = styled.button`
 
 const RoutineList = styled.ul`
   width: 100%;
+  height: auto;
+  max-height: 45.4rem; /* 높이 고정 */
   list-style: none;
+  overflow-y: scroll; /* 스크롤 가능 */
   padding: 0;
+  margin: 0;
+
+  /* 스크롤바 스타일 (선택 사항) */
+  &::-webkit-scrollbar {
+    width: 0; /* 스크롤바 너비 */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${theme.color.gray04}; /* 스크롤바 색상 */
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${theme.color.white}; /* 스크롤바 트랙 색상 */
+  }
 `;
 
 const RoutineItem = styled.li`
