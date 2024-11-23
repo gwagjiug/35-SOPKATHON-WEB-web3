@@ -50,6 +50,30 @@ const theme = {
       font-weight: 600;
       line-height: 18px;
     `,
+    title_sb_56: `
+    font-family: 'Pretendard', sans-serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 64px;
+  `,
+    caption_sb_14: `
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+  `,
+    caption_m_12: `
+    font-family: 'Pretendard', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    `,
+    caption_m_14: `
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    `,
   },
 };
 
