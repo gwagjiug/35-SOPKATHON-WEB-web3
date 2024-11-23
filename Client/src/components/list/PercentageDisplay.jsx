@@ -14,7 +14,7 @@ const Percentage = styled.span`
 `;
 
 const SubtitleContainer = styled.div`
-  margin-top: 1.9rem;
+  margin-top: 1rem;
 `;
 
 const SubtitleText = styled.span`
