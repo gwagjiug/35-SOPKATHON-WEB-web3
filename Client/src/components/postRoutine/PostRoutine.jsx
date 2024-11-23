@@ -22,6 +22,11 @@ const PostRoutine = () => {
     }
   };
 
+  const removeRoutine = (index) => {
+    const updatedRoutines = routineList.filter((_, i) => i !== index);
+    setRoutineList(updatedRoutines);
+  };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       addRoutine();
@@ -50,16 +55,18 @@ const PostRoutine = () => {
           <RoutineItem key={index}>
             <RoutineWrap>{routine}</RoutineWrap>
             <DeleteIconWrap>
-              <IcRoutineDelete />
+              <IcRoutineDelete onClick={() => removeRoutine(index)} />
             </DeleteIconWrap>
           </RoutineItem>
         ))}
       </RoutineList>
-      <RoutinePlusWrap onClick={addRoutine}>
-        <IcRoutinePlus />
+      <RoutinePlusWrap>
+        <IcRoutinePlus onClick={addRoutine} />
       </RoutinePlusWrap>
       <SubmitButtonWrap>
-        <SubmitButton>제출하기</SubmitButton>
+        <SubmitButton hasRoutines={routineList.length > 0}>
+          제출하기
+        </SubmitButton>
       </SubmitButtonWrap>
     </RoutineContainer>
   );
@@ -131,7 +138,7 @@ const RoutineWrap = styled.div`
   align-items: center;
 `;
 
-const DeleteIconWrap = styled.div`
+const DeleteIconWrap = styled.button`
   display: flex;
   width: 4.4rem;
   height: 4.4rem;
@@ -157,13 +164,14 @@ const SubmitButton = styled.button`
   align-items: center;
   gap: 1rem;
   border-radius: 1.6rem;
-  background-color: ${theme.color.gray05};
+  background-color: ${({ hasRoutines }) =>
+    hasRoutines ? theme.main.main02 : theme.color.gray05};
+  &:hover {
+    background-color: ${({ hasRoutines }) =>
+      hasRoutines ? theme.main.main01 : theme.color.gray05};
+  }
   color: ${theme.color.white};
   ${theme.font.title_sb_20}
-
-  &:hover {
-    background-color: ${theme.main.main02};
-  }
 `;
 
 const RoutineList = styled.ul`
