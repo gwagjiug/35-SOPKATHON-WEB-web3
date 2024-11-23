@@ -1,16 +1,23 @@
 import styled from 'styled-components';
-function Button() {
+import PropTypes from 'prop-types';
+
+function Button({ prop, onClick }) {
+  const buttonTxt = ['내일은 풍성할래', '자라나라 머리머리✨'];
+
   return (
-    <>
-      <S.ButtonContainer>
-        <p>안녕하세요</p>
-      </S.ButtonContainer>
-    </>
+    <S.ButtonContainer onClick={onClick}>
+      <p>{buttonTxt[prop]}</p>
+    </S.ButtonContainer>
   );
 }
 
+Button.propTypes = {
+  prop: PropTypes.number.isRequired,
+  onClick: PropTypes.func,
+};
+
 const S = {
-  ButtonContainer: styled.div`
+  ButtonContainer: styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
