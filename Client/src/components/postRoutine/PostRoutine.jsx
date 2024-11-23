@@ -58,7 +58,7 @@ const PostRoutine = () => {
         placeholder="루틴 입력하기"
         value={inputValue}
         onChange={handleChange}
-        onKeyDown={handleKeyPress}
+        onKeyUp={handleKeyPress}
       />
       <RoutineList>
         {routineList.map((routine, index) => (
