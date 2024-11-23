@@ -2,7 +2,7 @@ import MobileLayout from '../components/common/MobileLayout';
 import Header from '../components/check/Header';
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import { ImgHairLess02 } from '../assets/svg';
+import { ImgHairLess02, ImgHairMany } from '../assets/svg';
 
 const CheckRoutine = () => {
   useEffect(() => {
@@ -12,6 +12,8 @@ const CheckRoutine = () => {
     localStorage.setItem('currentTime', dateOnly);
   }, []);
 
+  const date = localStorage.getItem('currentTime');
+
   return (
     <MobileLayout>
       <S.Main>
@@ -19,7 +21,9 @@ const CheckRoutine = () => {
         <S.ImgSection>
           <StyledIcnBoldy />
         </S.ImgSection>
-        <S.TimeSection></S.TimeSection>
+        <S.TimeSection>
+          <p>{date}</p>
+        </S.TimeSection>
       </S.Main>
     </MobileLayout>
   );
@@ -37,8 +41,13 @@ const S = {
     padding: 1.4rem 4.5rem;
   `,
   TimeSection: styled.section`
+    margin-left: 1.4rem;
     width: 100%;
     height: 7.2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    ${({ theme }) => theme.font.title_sb_16}
   `,
 };
 
