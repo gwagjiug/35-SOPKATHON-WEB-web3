@@ -1,11 +1,14 @@
 import MobileLayout from '../components/common/MobileLayout';
+import PostRoutine from '../components/postRoutine/PostRoutine';
 
-const PostRoutine = () => {
+const PostRoutinePage = () => {
   return (
     <MobileLayout>
-      <main>루틴을 작성하는 페이지입니다</main>
+      <main>
+        <PostRoutine />
+      </main>
     </MobileLayout>
   );
 };
 
-export default PostRoutine;
+export default PostRoutinePage;
