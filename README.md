@@ -108,6 +108,6 @@
 5. 남는건 추억뿐! 낭만 솝커톤하기
 
 ---
-| <img src="https://github.com/user-attachments/assets/3e0c332b-d9eb-467b-8c70-637a3f37c5d7" width="100%" height="50%"> | <img src="https://github.com/user-attachments/assets/35fa065a-1987-4ab3-bdcf-2359bd4a2ed8" width="100%" height="50%"> | 
+| <img src="https://github.com/user-attachments/assets/3e0c332b-d9eb-467b-8c70-637a3f37c5d7" width="100%" height="30%"> | <img src="https://github.com/user-attachments/assets/35fa065a-1987-4ab3-bdcf-2359bd4a2ed8" width="100%" height="30%"> | 
 |:---:|:---:|
 | 🥰 최강 웨비들 사진(before) | 😇 최강 웨비들 사진(after) |
