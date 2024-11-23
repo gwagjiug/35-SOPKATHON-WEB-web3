@@ -9,11 +9,13 @@ import {
   ImgRoutineBoldSmile,
 } from '../../assets/svg';
 
-const PostRoutine = () => {
+const PostRoutine = ({ initialRoutines = [], isEditMode = false }) => {
   const navigate = useNavigate();
 
   const [inputValue, setInputValue] = useState('');
-  const [routineList, setRoutineList] = useState([]);
+  const [routineList, setRoutineList] = useState(initialRoutines);
+
+  const buttonText = isEditMode ? '수정하기' : '제출하기';
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -38,7 +40,7 @@ const PostRoutine = () => {
   };
 
   const handleSubmit = () => {
-    if (routineList.length > 0) {
+    if (routineList.length >= 1) {
       navigate('/check');
     }
   };
@@ -48,7 +50,7 @@ const PostRoutine = () => {
       <TopContainer>
         <Title>
           당신의 풍성 루틴을
-          <br /> 작성해주세요!
+          <br /> {isEditMode ? '수정하새요!' : '작성해주세요!'}
         </Title>
         <ImgWrap>
           <ImgRoutineBoldSmile />
@@ -78,7 +80,7 @@ const PostRoutine = () => {
           hasroutines={routineList.length > 0}
           onClick={handleSubmit}
         >
-          제출하기
+          {buttonText}
         </SubmitButton>
       </SubmitButtonWrap>
     </RoutineContainer>
