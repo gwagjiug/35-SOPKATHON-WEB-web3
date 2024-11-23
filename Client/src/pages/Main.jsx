@@ -1,4 +1,5 @@
 import MobileLayout from '../components/common/MobileLayout';
+import { useNavigate } from 'react-router-dom';
 import {
   ImgSymbol,
   ImgSymbolLb,
@@ -9,6 +10,7 @@ import {
 import styled from 'styled-components';
 
 const Main = () => {
+  const navigate = useNavigate();
   return (
     <MobileLayout>
       <S.Wrapper>
@@ -19,7 +21,7 @@ const Main = () => {
           </S.TitleBox>
           <ImgSymbol width="21.1rem" heigth="24.2rem" />
         </S.Container>
-        <S.Button>시작하기</S.Button>
+        <S.Button onClick={() => navigate('/post')}>시작하기</S.Button>
         <S.Iconlt>
           <ImgSymbolLt width=" 458.266px" height="39.9rem" />
         </S.Iconlt>
