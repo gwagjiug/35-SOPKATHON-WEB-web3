@@ -1,3 +1,4 @@
+export { default as Logo } from './Logo';
 export { default as IcCheckboxDefault } from './IcCheckboxDefault';
 export { default as IcCheckboxDisabled } from './IcCheckboxDisabled';
 export { default as IcRoutineDelete } from './IcRoutineDelete';
