@@ -1,11 +1,24 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { IcCheckboxDisabled, IcCheckboxDefault } from '../../assets/svg';
-import { useState, useEffect, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Button from './Button';
 import { useLocation } from 'react-router-dom';
 
 function Input({ onAllChecked, resetTrigger }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.routines) {
+      const initialTodos = location.state.routines.map((text, index) => ({
+        id: index + 1,
+        text,
+        isChecked: false,
+      }));
+      setTodos(initialTodos);
+    }
+  }, [location.state]);
+
   const [todos, setTodos] = useState([
     { id: 1, text: '탈모방지 샴푸 사용하기', isChecked: false },
     { id: 2, text: '머리 하루에 5번 이상 빗기', isChecked: false },
