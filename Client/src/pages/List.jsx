@@ -1,11 +1,26 @@
+import styled from 'styled-components';
 import MobileLayout from '../components/common/MobileLayout';
+import ListHeader from '../components/list/ListHeader';
+import SuccessRateSection from '../components/list/SuccessRateSection';
+import CardsSection from '../components/list/CardsSection';
+import LevelSection from '../components/list/LevelSection';
 
-const List = () => {
+const PageContainer = styled.div`
+  width: 100%;
+  padding: 3rem;
+`;
+
+const ListPage = () => {
   return (
     <MobileLayout>
-      <main>이전의 루틴 기록을 볼 수 있는 리스트 페이지입니다.</main>
+      <ListHeader title="돌아가기" onBack={() => console.log('뒤로가기')} />
+      <PageContainer>
+        <SuccessRateSection />
+        <CardsSection />
+        <LevelSection level={1} levelsLeft={9} />
+      </PageContainer>
     </MobileLayout>
   );
 };
 
-export default List;
+export default ListPage;
