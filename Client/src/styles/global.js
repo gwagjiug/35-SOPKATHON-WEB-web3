@@ -16,6 +16,10 @@ const Global = createGlobalStyle`
     font-size: 62.5%;
     scrollbar-width: none;
     scroll-behavior: smooth;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
   }
 
   a {
