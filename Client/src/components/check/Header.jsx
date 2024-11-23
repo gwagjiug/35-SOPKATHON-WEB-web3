@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { IcnRoutineBack } from '../../assets/svg';
-
 function Header() {
   return (
     <>
