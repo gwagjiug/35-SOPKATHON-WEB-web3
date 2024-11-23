@@ -6,8 +6,6 @@ const instance = axios.create({
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache',
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    Origin: 'http://localhost:5173/',
   },
 });
 

@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 import { ImgSymbol } from '../../assets/svg';
+import { ImgCheckboxHairArray } from '../../const/imgCheckboxHairArray';
 
 const CardItem = ({ e }) => {
-  const name = '볼디';
-  const date = '2024년 11월 21일';
-  const total_routine = 10;
-  const achived_routine = 7;
+  console.log(e.level);
+  const Img = ImgCheckboxHairArray[e.level - 3];
 
   return (
     <S.Card>
-      <ImgSymbol width="9.4rem" height="8.1rem" />
+      {Img ? (
+        <Img width="9.4rem" height="8.1rem" />
+      ) : (
+        <ImgSymbol width="9.4rem" height="8.1rem" />
+      )}
+
       <div>
         <span>
           <span className="label">달성률</span>

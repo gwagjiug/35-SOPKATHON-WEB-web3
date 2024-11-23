@@ -6,7 +6,7 @@ const getList = async ({ date, MemberId }) => {
       params: { date },
       headers: { 'Member-Id': MemberId },
     });
-
+    console.log(res.data.data.todoLists);
     return res.data.data.todoLists;
   } catch (err) {
     throw err;
