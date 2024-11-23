@@ -6,6 +6,8 @@ import CardsSection from '../components/list/CardsSection';
 import LevelSection from '../components/list/LevelSection';
 import CardItem from '../components/list/CardItem';
 import { useNavigate } from 'react-router-dom';
+import getList from '../apis/getList';
+import { useEffect, useState } from 'react';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -14,6 +16,20 @@ const PageContainer = styled.div`
 
 const ListPage = () => {
   const navigate = useNavigate();
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    const getListData = async () => {
+      const date = localStorage.getItem('currentTime');
+      if (date) {
+        const res = await getList({ date, MemberId: 1 });
+        console.log(res);
+        setList(res);
+      }
+    };
+    getListData();
+    console.log(list);
+  }, []);
   return (
     <MobileLayout>
       <ListHeader title="돌아가기" onBack={() => navigate(-1)} />
@@ -24,9 +40,7 @@ const ListPage = () => {
         <S.Container>
           <h1>지금까지 볼디의 모습</h1>
           <S.CardsContainer>
-            <CardItem />
-            <CardItem />
-            <CardItem />
+            {list.length !== 0 && list.map((e) => <CardItem e={e} />)}
           </S.CardsContainer>
         </S.Container>
       </PageContainer>

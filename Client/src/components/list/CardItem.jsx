@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ImgSymbol } from '../../assets/svg';
 
-const CardItem = () => {
+const CardItem = ({ e }) => {
   const name = '볼디';
   const date = '2024년 11월 21일';
   const total_routine = 10;
@@ -11,16 +11,12 @@ const CardItem = () => {
     <S.Card>
       <ImgSymbol width="9.4rem" height="8.1rem" />
       <div>
-        <div>
-          <span className="label">이름</span>
-          {name}
-        </div>
         <span>
           <span className="label">달성률</span>
-          <span>{achived_routine}</span>
-          <span> / {total_routine}</span>
+          <span>{e.num_completed}</span>
+          <span> / {e.num_all}</span>
         </span>
-        <div className="label">{date}</div>
+        <div className="label">{e.date}</div>
       </div>
     </S.Card>
   );
