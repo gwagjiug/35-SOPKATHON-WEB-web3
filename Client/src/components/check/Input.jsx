@@ -1,16 +1,23 @@
 import styled from 'styled-components';
 import { IcCheckboxDisabled, IcCheckboxDefault } from '../../assets/svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function Input() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: '안녕하세요👌', isChecked: false },
-    { id: 2, text: '리스트 항목 2', isChecked: false },
-    { id: 3, text: '리스트 항목 3', isChecked: false },
-    { id: 4, text: '리스트 항목 4', isChecked: false },
-    { id: 5, text: '리스트 항목 5', isChecked: false },
-    { id: 6, text: '리스트 항목 5', isChecked: false },
-  ]);
+  const location = useLocation();
+  const [todos, setTodos] = useState([]);
+
+  // 루틴 데이터 수신 및 초기화
+  useEffect(() => {
+    if (location.state && location.state.routines) {
+      const initialTodos = location.state.routines.map((text, index) => ({
+        id: index + 1,
+        text,
+        isChecked: false,
+      }));
+      setTodos(initialTodos);
+    }
+  }, [location.state]);
 
   const handleToggle = (id) => {
     setTodos((prevTodos) =>
