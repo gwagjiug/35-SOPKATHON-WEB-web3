@@ -1,11 +1,11 @@
-import PostRoutine from '../components/postRoutine/PostRoutine';
+import PostRoutine from '../components/PostRoutine/PostRoutine';
 import MobileLayout from '../components/common/MobileLayout';
 
 const Edit = () => {
   return (
     <MobileLayout>
       <main>
-        <PostRoutine isEditMode="true" />
+        <PostRoutine initialRoutines={[]} isEditMode="true" />
       </main>
     </MobileLayout>
   );
