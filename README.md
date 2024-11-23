@@ -1,4 +1,4 @@
-## 👋 프로젝트 소개 
+# 👋 프로젝트 소개 
 <p align="center"><img src="https://github.com/user-attachments/assets/70f33869-355c-49f2-a1e3-442e9e38aa35"></p>
 
 ## 나는야 빡빡이 🧑‍🦲
