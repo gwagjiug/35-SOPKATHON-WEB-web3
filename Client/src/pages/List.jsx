@@ -1,9 +1,14 @@
 import MobileLayout from '../components/common/MobileLayout';
+import ListHeader from '../components/list/ListHeader'; 
 
 const List = () => {
+  const handleBack = () => {
+    console.log('뒤로가기 버튼 클릭');
+  };
+
   return (
     <MobileLayout>
-      <main>이전의 루틴 기록을 볼 수 있는 리스트 페이지입니다.</main>
+      <ListHeader title="돌아가기" onBack={handleBack} />
     </MobileLayout>
   );
 };
