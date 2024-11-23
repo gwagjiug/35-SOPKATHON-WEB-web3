@@ -40,7 +40,7 @@ const ListPage = () => {
         <S.Container>
           <h1>지금까지 볼디의 모습</h1>
           <S.CardsContainer>
-            {list.length !== 0 && list.map((e) => <CardItem e={e} />)}
+            {list.length !== 0 && list.map((e) => <CardItem data={e} />)}
           </S.CardsContainer>
         </S.Container>
       </PageContainer>

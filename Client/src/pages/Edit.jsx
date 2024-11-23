@@ -1,4 +1,4 @@
-import PostRoutine from '../components/PostRoutine/PostRoutine';
+import PostRoutine from '../components/postRoutine/PostRoutine';
 import MobileLayout from '../components/common/MobileLayout';
 
 const Edit = () => {

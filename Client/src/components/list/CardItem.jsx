@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { ImgSymbol } from '../../assets/svg';
 import { ImgCheckboxHairArray } from '../../const/imgCheckboxHairArray';
 
-const CardItem = ({ e }) => {
-  console.log(e.level);
-  const Img = ImgCheckboxHairArray[e.level - 3];
+const CardItem = ({ data }) => {
+  console.log(data.level);
+  const Img = ImgCheckboxHairArray[data.level - 3];
 
   return (
     <S.Card>
@@ -17,10 +17,10 @@ const CardItem = ({ e }) => {
       <div>
         <span>
           <span className="label">달성률</span>
-          <span>{e.num_completed}</span>
-          <span> / {e.num_all}</span>
+          <span>{data.num_completed}</span>
+          <span> / {data.num_all}</span>
         </span>
-        <div className="label">{e.date}</div>
+        <div className="label">{data.date}</div>
       </div>
     </S.Card>
   );
