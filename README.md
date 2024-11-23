@@ -1,7 +1,7 @@
 # 👋 프로젝트 소개 
-<p align="center"><img src="https://github.com/user-attachments/assets/70f33869-355c-49f2-a1e3-442e9e38aa35"></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/8291f134-aa92-4cfe-acbe-7914919385a7"></p>
 
-## 나는야 빡빡이 🧑‍🦲
+## 나는야 빡빡이(NaNeuNya PPakPPaki) 🧑‍🦲
 ✨ 탈모인들의 희망, 볼디의 풍성 성장기! ✨
 
 "나는야 빡빡이"는 탈모인들의 든든한 친구 '볼디'와 함께 머리숱 되찾기 여정을 시작하는 모바일 웹 서비스입니다. <br/>
