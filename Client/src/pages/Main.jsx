@@ -20,19 +20,19 @@ const Main = () => {
           <ImgSymbol width="21.1rem" heigth="24.2rem" />
         </S.Container>
         <S.Button>시작하기</S.Button>
+        <S.Iconlt>
+          <ImgSymbolLt width=" 458.266px" height="39.9rem" />
+        </S.Iconlt>
+        <S.Iconrt>
+          <ImgSymbolRt width="15.6rem" height="13.6rem" />
+        </S.Iconrt>
+        <S.Iconlb>
+          <ImgSymbolLb width="24rem" heigth="19.1rem" />
+        </S.Iconlb>
+        <S.Iconrb>
+          <ImgSymbolRb width="21.9rem" height="19.1rem" />
+        </S.Iconrb>
       </S.Wrapper>
-      <S.Iconlt>
-        <ImgSymbolLt width=" 458.266px" height="399.563px" />
-      </S.Iconlt>
-      <S.Iconrt>
-        <ImgSymbolRt width="156px" height="136px" />
-      </S.Iconrt>
-      <S.Iconlb>
-        <ImgSymbolLb width="240px" heigth="191px" />
-      </S.Iconlb>
-      <S.Iconrb>
-        <ImgSymbolRb width="219px" height="191px" />
-      </S.Iconrb>
     </MobileLayout>
   );
 };
@@ -45,15 +45,18 @@ const S = {
     display: flex;
     height: 100dvh;
     align-items: center;
-    padding-top: 40%;
+    padding-top: 35%;
     gap: 16rem;
     flex-direction: column;
+    overflow: hidden;
 
     & h1 {
-      font-size: 3.2rem;
+      ${({ theme }) => theme.font.title_sb_32}
+      margin-bottom: 1rem;
     }
 
     & h2 {
+      ${({ theme }) => theme.font.title_sb_16}
       color: ${({ theme }) => theme.color.gray05};
     }
   `,
@@ -72,11 +75,13 @@ const S = {
   `,
 
   Button: styled.button`
-    width: 80%;
+    width: 90%;
     padding: 1.2rem 11.6rem;
     border-radius: 1.6rem;
+    ${({ theme }) => theme.font.title_sb_20}
     background-color: ${({ theme }) => theme.main.main02};
-    color: ${({ theme }) => theme.color.black};
+    color: ${({ theme }) => theme.color.white};
+    z-index: 2;
   `,
 
   Iconlt: styled.div`
