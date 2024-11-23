@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+import { getLevelData } from '../../apis/list/fetchLevelData';
 import LevelDisplay from './levelsection/LevelDisplay'; 
 import { ImgHairLess02 } from '../../assets/svg'; 
 
@@ -27,7 +28,25 @@ const CharacterImage = styled(ImgHairLess02)`
   height: 107px;
 `;
 
-const LevelSection = ({ level, levelsLeft }) => {
+const LevelSection = () => {
+  const [level, setLevel] = useState(0); // 초기값 설정
+  const maxLevel = 8; // 만렙은 8
+
+  useEffect(() => {
+    const fetchLevel = async () => {
+      try {
+        const fetchedLevel = await getLevelData(); // API 호출
+        setLevel(fetchedLevel);
+      } catch (error) {
+        console.error('레벨 데이터를 불러오는 중 오류 발생:', error);
+      }
+    };
+
+    fetchLevel();
+  }, []);
+
+  const levelsLeft = maxLevel - level; // 남은 레벨 계산
+
   return (
     <SectionContainer>
       <SectionTitle>현재 볼디 레벨</SectionTitle>
@@ -37,11 +56,6 @@ const LevelSection = ({ level, levelsLeft }) => {
       </SectionContent>
     </SectionContainer>
   );
-};
-
-LevelSection.propTypes = {
-  level: PropTypes.number.isRequired,
-  levelsLeft: PropTypes.number.isRequired,
 };
 
 export default LevelSection;
