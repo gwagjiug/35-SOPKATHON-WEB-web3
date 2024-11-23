@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+
 import theme from '../../styles/theme';
 import {
   IcRoutineDelete,
@@ -8,6 +10,8 @@ import {
 } from '../../assets/svg';
 
 const PostRoutine = () => {
+  const navigate = useNavigate();
+
   const [inputValue, setInputValue] = useState('');
   const [routineList, setRoutineList] = useState([]);
 
@@ -30,6 +34,12 @@ const PostRoutine = () => {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       addRoutine();
+    }
+  };
+
+  const handleSubmit = () => {
+    if (routineList.length > 0) {
+      navigate('/check');
     }
   };
 
@@ -64,7 +74,10 @@ const PostRoutine = () => {
         <IcRoutinePlus onClick={addRoutine} />
       </RoutinePlusWrap>
       <SubmitButtonWrap>
-        <SubmitButton hasRoutines={routineList.length > 0}>
+        <SubmitButton
+          hasRoutines={routineList.length > 0}
+          onClick={handleSubmit}
+        >
           제출하기
         </SubmitButton>
       </SubmitButtonWrap>
@@ -83,6 +96,7 @@ const RoutineContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${theme.color.white};
+  min-height: 100dvh;
 `;
 
 const TopContainer = styled.div`
@@ -148,11 +162,8 @@ const DeleteIconWrap = styled.button`
 `;
 
 const SubmitButtonWrap = styled.button`
-  position: fixed;
-  bottom: 0;
-  width: 37.5rem;
-  height: 15.1rem;
-  padding: 4.6rem 0 5.3rem 0;
+  margin-top: auto;
+  width: 100%;
 `;
 
 const SubmitButton = styled.button`
@@ -178,6 +189,7 @@ const RoutineList = styled.ul`
   width: 100%;
   list-style: none;
   padding: 0;
+  overflow-y: scroll;
 `;
 
 const RoutineItem = styled.li`
