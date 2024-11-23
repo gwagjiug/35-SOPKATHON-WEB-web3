@@ -1,14 +1,15 @@
-import MobileLayout from './components/common/MobileLayout';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Main, CheckRoutine, PostRoutine, List } from './pages';
 
 function App() {
-  const router = createBrowserRouter([{ path: '/', elemet: <></> }]);
+  const router = createBrowserRouter([
+    { path: '/', element: <Main /> },
+    { path: '/post', element: <PostRoutine /> },
+    { path: '/check', element: <CheckRoutine /> },
+    { path: '/list', element: <List /> },
+  ]);
 
-  return (
-    <MobileLayout>
-      <main>테스트</main>
-    </MobileLayout>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
