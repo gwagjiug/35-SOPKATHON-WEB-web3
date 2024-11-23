@@ -1,5 +1,5 @@
 import MobileLayout from '../components/common/MobileLayout';
-import ListHeader from '../components/list/ListHeader'; 
+import ListHeader from '../components/list/ListHeader';
 
 const List = () => {
   const handleBack = () => {
