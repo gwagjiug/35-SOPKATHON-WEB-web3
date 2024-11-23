@@ -1,15 +1,41 @@
-import MobileLayout from '../components/common/MobileLayout';
-import MainContent from '../components/main/MainContent';
-
-const Main = () => {
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import {
+  ImgSymbol,
+  ImgSymbolLb,
+  ImgSymbolLt,
+  ImgSymbolRb,
+  ImgSymbolRt,
+} from '../../assets/svg';
+const MainContent = () => {
+  const navigate = useNavigate();
   return (
-    <MobileLayout>
-      <MainContent />
-    </MobileLayout>
+    <S.Wrapper>
+      <S.Container>
+        <S.TitleBox>
+          <h1>나는야 빡빡이</h1>
+          <h2>볼디의 머리를 채워주세요!</h2>
+        </S.TitleBox>
+        <ImgSymbol width="21.1rem" heigth="24.2rem" />
+      </S.Container>
+      <S.Button onClick={() => navigate('/post')}>시작하기</S.Button>
+      <S.Iconlt>
+        <ImgSymbolLt width=" 458.266px" height="39.9rem" />
+      </S.Iconlt>
+      <S.Iconrt>
+        <ImgSymbolRt width="15.6rem" height="13.6rem" />
+      </S.Iconrt>
+      <S.Iconlb>
+        <ImgSymbolLb width="24rem" heigth="19.1rem" />
+      </S.Iconlb>
+      <S.Iconrb>
+        <ImgSymbolRb width="21.9rem" height="19.1rem" />
+      </S.Iconrb>
+    </S.Wrapper>
   );
 };
 
-export default Main;
+export default MainContent;
 
 const S = {
   Wrapper: styled.main`
