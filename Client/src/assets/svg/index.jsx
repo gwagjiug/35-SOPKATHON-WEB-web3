@@ -1,3 +1,9 @@
+export { default as IcRoutineDelete } from './IcRoutineDelete';
+export { default as IcRoutinePlus } from './IcRoutinePlus';
+export { default as IcnRoutineBack } from './IcnRoutineBack';
+export { default as ImgHairLess02 } from './ImgHairLess02';
+export { default as ImgHairMany } from './ImgHairMany';
+export { default as ImgRoutineBoldSmile } from './ImgRoutineBoldSmile';
 export { default as ImgSymbol } from './ImgSymbol';
 export { default as ImgSymbolLb } from './ImgSymbolLb';
 export { default as ImgSymbolLt } from './ImgSymbolLt';
