@@ -1,37 +1,11 @@
 # 👋 프로젝트 소개 
-<p align="center"><img src="https://github.com/user-attachments/assets/8291f134-aa92-4cfe-acbe-7914919385a7"></p>
 
-## 나는야 빡빡이(NaNeuNya PPakPPaki) 🧑‍🦲
-✨ 탈모인들의 희망, 볼디의 풍성 성장기! ✨
+![빡빡이 1번 pdf-1-3](https://github.com/user-attachments/assets/aadfb6a0-010c-45fc-9149-87856b7af704)
 
-"나는야 빡빡이"는 탈모인들의 든든한 친구 '볼디'와 함께 머리숱 되찾기 여정을 시작하는 모바일 웹 서비스입니다. <br/>
-풍성한 삶을 위해 자신만의 루틴을 만들고, 매일 체크하며, 작은 성취로 큰 변화를 이뤄보세요!  <br/>
-볼디는 여러분의 노력에 따라 머리가 자랄 수도 있고… 아닐 수도 있어요. 하지만 꾸준한 도전과 재미는 보장합니다! 🦲➡️ 💇‍♂️  <br/>
+![빡박이2번 pdf-1-2](https://github.com/user-attachments/assets/57af8a2f-835d-40fe-b2fb-0639f97d3137)
 
----
-## 💥 핵심 기능
+![빡박이 3번 pdf-1-1](https://github.com/user-attachments/assets/f08e8cef-dc1c-4323-b3fb-63d75ab51305)
 
-### 1️⃣ 🌱 자라나라 루틴 설정
-
-유저 맞춤 `풍성 루틴` 추가/수정/삭제 가능!  <br/>
-루틴은 체크리스트로 표시되어 매일 쉽게 관리할 수 있어요.
-
-### 2️⃣ ✅ 볼디의 투두리스트 완료 도전!
-
-오늘의 투두리스트를 모두 완료하면 "자라나라 머리머리" 버튼이 활성화되고,  <br/>
-볼디의 머리가 자라나는 감동적인 순간을 경험할 수 있어요!  <br/>
-투두리스트를 완료하지 못했어도, 걱정 말아요! "내일은 풍성할 거예요" 버튼을 누르고 더 나은 내일을 꿈꿀 수 있답니다. <br/>
-(머리는 자라지 않아요… 하지만 희망은 남아있습니다!) 🍀  
-
-### 3️⃣ 📅 볼디의 기록
-
-모든 루틴 달성 기록을 날짜별로 확인 가능! <br/>
-달성한 루틴과 그날의 볼디 머리 상태를 한눈에 볼 수 있어요.
-
----
-## 🔍 배포 주소
-
- [볼디 만나러 가기 🏃🏃‍♀️](https://35-sopkathon-web-web3.vercel.app/)
 
 ---
 
@@ -44,16 +18,24 @@
 | 메인 view | 루틴 체크 view | 루틴 리스트 view | 루틴 생성 view |
 | 메인화면 & 성공률 조회 API | 메인화면 & 체크리스트 반영 API | 전체 todo 불러오기 API | todo 생성 & 수정 API |
 
-<br>
 
-## ⚙️ 채택한 개발 기술
+---
 
-### ![React](https://img.shields.io/badge/React-000000?style=for-the-badge&logo=react)
-### ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
-### ![Prettier](https://img.shields.io/badge/prettier-%23F7B93E.svg?style=for-the-badge&logo=prettier&logoColor=black) 
-### ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 
-<br>
+## ⚙️ Stack
+
+| 역할                 | 종류                                                                                                                                                                                                                 |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Library              | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white) ![VITE](https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=Vite&logoColor=white)
+| Programming Language | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)                                                                                                |
+| Styling              | ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)                                                                                                           |
+| Data Fetching        | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white)                                                                                                                   |
+| Formatting           | ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)     |
+
+
+
+---
+
 
 ### ✅ 커밋 컨벤션과 브랜치 전략
 
@@ -67,7 +49,7 @@
 | `style`    | 기능 수정 없는 코드 스타일 변경       |                               |
 | `rename`   | 이름 변경                              |                               |
 
-<br>
+---
 
 | 브랜치 | 용도 |
 | ------ | ---- |
@@ -76,6 +58,8 @@
 | gwagjiug | 지욱 담당 기능 브랜치 |
 | dahyun | 다현 담당 기능 브랜치 |
 | chanyoung | 찬영 담당 기능 브랜치 |
+
+---
 
 ## 프로젝트 구조
 ```
@@ -100,12 +84,7 @@
 |— 📁 store
 ```
 ---
-## 🫶 우리 조 그라운드 룰
-1. 질문하는 걸 겁내지 않기!
-2. 말투는 언제나 둥글둥글하게!
-3. 내 의견을 타 파트에 전달할 때 근거있게 말하기
-4. 상대방 배려하면서 행동하기~
-5. 남는건 추억뿐! 낭만 솝커톤하기
+
 
 ---
 | <img src="https://github.com/user-attachments/assets/3e0c332b-d9eb-467b-8c70-637a3f37c5d7" width="100%" height="30%"> | <img src="https://github.com/user-attachments/assets/35fa065a-1987-4ab3-bdcf-2359bd4a2ed8" width="100%" height="30%"> | 
